@@ -1,0 +1,36 @@
+<!-- <h1>Welcome to {{title}}!</h1>
+<mjs-checkbox label='Admin' [(checked)]="isAdmin" />
+<hr>
+<p>{{adminMessage()}} user</p>
+<p>{{someText()}}</p> -->
+
+<hr>
+<section class="game-board">
+    <table>
+        <thead>
+
+            <tr>
+                @for (category of categories; track category) {
+                <th class="category">
+                    {{category.description}}
+                </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+
+            @for (category of categories; track category) {
+            <tr>
+                @for (quastion of category.quastions; track quastion) {
+                <td class="answer">
+                    <a [routerLink]="['/answer' , quastion.description]" >
+                        &dollar;{{quastion.value}}
+                    </a>
+                </td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+    <router-outlet />
+</section>
